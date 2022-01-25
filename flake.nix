@@ -1,5 +1,5 @@
 {
-  description = "A flake wrapping pgquarrel";
+  description = "A flake wrapping migra";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs";
@@ -41,8 +41,8 @@
         };
       in {
         overlay = final: prev: { inherit migra; };
-        packages."${system}".migra = migra;
-        defaultPackage."${system}" = migra;
+        packages.migra = migra;
+        defaultPackage = migra;
         devShell = pkgs.mkShell { buildInputs = [ migra ]; };
       });
 }
